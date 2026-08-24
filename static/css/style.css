@@ -1,0 +1,116 @@
+/* Космическая тема */
+body {
+    background: #0b0e1a;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 50px 160px, #ddd, transparent),
+        radial-gradient(2px 2px at 90px 40px, #fff, transparent),
+        radial-gradient(3px 3px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-size: 200px 200px;
+    background-color: #0b0e1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: rgba(10, 14, 30, 0.85) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(100, 100, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-brand {
+    color: #7ec8e3 !important;
+    text-shadow: 0 0 10px rgba(126, 200, 227, 0.3);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #c0d0e0 !important;
+    transition: 0.3s;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #7ec8e3 !important;
+    text-shadow: 0 0 10px rgba(126, 200, 227, 0.5);
+}
+
+.card {
+    background: rgba(20, 30, 50, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(100, 100, 255, 0.3);
+}
+.card-body {
+    color: #d0d8e8;
+}
+.card-title {
+    color: #7ec8e3;
+}
+
+.btn-primary {
+    border-radius: 30px;
+    padding: 10px 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+.hero {
+    background: linear-gradient(135deg, #1a1a3e 0%, #0f0f2a 100%);
+    padding: 60px 20px;
+    border-radius: 30px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 60px rgba(100, 100, 255, 0.1);
+}
+
+.hero h1 {
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(100, 150, 255, 0.3);
+}
+.hero p {
+    color: #b0c8e0;
+}
+
+.footer {
+    background: rgba(10, 14, 30, 0.8) !important;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #8090a0;
+}
+
+.bi {
+    color: #7ec8e3;
+    filter: drop-shadow(0 0 8px rgba(126, 200, 227, 0.3));
+}
+
+input, textarea {
+    background: rgba(20, 30, 50, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e0e8f0 !important;
+}
+input:focus, textarea:focus {
+    background: rgba(30, 40, 70, 0.8) !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.3) !important;
+}
+label {
+    color: #a0b8d0;
+}

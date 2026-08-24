@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="hero text-center">
+    <h1 class="display-4 fw-bold">Добро пожаловать в AstroWeb</h1>
+    <p class="lead">Исследуйте космос вместе с нами</p>
+    <a class="btn btn-primary btn-lg mt-3" href="/services" role="button">Наши услуги</a>
+</div>
+
+<div class="row text-center g-4">
+    <div class="col-md-4">
+        <i class="bi bi-stars display-3"></i>
+        <h4>Космические технологии</h4>
+        <p>Современные решения для вашего бизнеса</p>
+    </div>
+    <div class="col-md-4">
+        <i class="bi bi-rocket display-3"></i>
+        <h4>Скорость и надёжность</h4>
+        <p>Быстрая разработка и запуск</p>
+    </div>
+    <div class="col-md-4">
+        <i class="bi bi-globe2 display-3"></i>   <!-- заменено на bi-globe2 -->
+        <h4>Глобальное покрытие</h4>
+        <p>Мы работаем по всему миру</p>
+    </div>
+</div>
+{% endblock %}

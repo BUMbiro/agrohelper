@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Услуги{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4" style="color: #7ec8e3;">Наши услуги</h2>
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-globe2 display-2"></i>
+                <h5 class="card-title">Космическая разработка</h5>
+                <p class="card-text">Сайты и приложения для космической отрасли</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-phone display-2"></i>
+                <h5 class="card-title">Мобильные решения</h5>
+                <p class="card-text">Приложения для управления миссиями</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-cloud-upload display-2"></i>
+                <h5 class="card-title">Облачные технологии</h5>
+                <p class="card-text">Хранение и обработка больших данных</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
