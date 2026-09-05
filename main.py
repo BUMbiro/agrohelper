@@ -11,9 +11,11 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 ROUTES = {
     '/': 'index.html',
-    '/services': 'services.html',
+    '/declaration': 'declaration.html',
+    '/training': 'training.html',
+    '/knowledge': 'knowledge.html',
+    '/blog': 'blog.html',
     '/contacts': 'contacts.html',
-    '/about': 'about.html',
 }
 
 
@@ -24,7 +26,6 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
     @staticmethod
     def render_template(template_name: str) -> str:
-        """Рендерит шаблон с поддержкой extends и block."""
         filepath = os.path.join(TEMPLATES_DIR, template_name)
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
@@ -83,38 +84,49 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
     # noinspection PyPep8Naming
     def do_POST(self):
-        if self.path == '/contacts':
-            try:
-                content_length = int(self.headers.get('Content-Length', 0))
-                post_data = self.rfile.read(content_length)
-                data = urllib.parse.parse_qs(post_data.decode('utf-8'))
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
 
-                print("\n" + "=" * 40)
-                print("📩 Получены данные из формы:")
-                for key, value in data.items():
-                    print(f"  {key}: {value[0]}")
-                print("=" * 40 + "\n")
+        try:
+            content_length = int(self.headers.get('Content-Length', 0))
+            post_data = self.rfile.read(content_length)
+            data = urllib.parse.parse_qs(post_data.decode('utf-8'))
 
+            print("\n" + "=" * 40)
+            print(f"📩 Получен POST-запрос на {path}:")
+            for key, value in data.items():
+                print(f"  {key}: {value[0]}")
+            print("=" * 40 + "\n")
+
+            if path == '/declaration':
+                self.send_response(303)
+                self.send_header('Location', '/declaration')
+                self.end_headers()
+            elif path == '/training':
+                self.send_response(303)
+                self.send_header('Location', '/training')
+                self.end_headers()
+            elif path == '/contacts':
                 self.send_response(303)
                 self.send_header('Location', '/contacts')
                 self.end_headers()
-            except (ValueError, KeyError, IndexError, TypeError) as e:
-                print(f"Ошибка при обработке POST: {e}")
-                html = self.render_template('500.html')
-                self.send_response(500)
+            else:
+                html = self.render_template('404.html')
+                self.send_response(404)
                 self.send_header('Content-type', 'text/html; charset=utf-8')
                 self.end_headers()
                 self.wfile.write(html.encode('utf-8'))
-            except Exception as e:
-                print(f"Неизвестная ошибка: {e}")
-                html = self.render_template('500.html')
-                self.send_response(500)
-                self.send_header('Content-type', 'text/html; charset=utf-8')
-                self.end_headers()
-                self.wfile.write(html.encode('utf-8'))
-        else:
-            html = self.render_template('404.html')
-            self.send_response(404)
+        except (ValueError, KeyError, IndexError, TypeError) as e:
+            print(f"Ошибка при обработке POST: {e}")
+            html = self.render_template('500.html')
+            self.send_response(500)
+            self.send_header('Content-type', 'text/html; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(html.encode('utf-8'))
+        except Exception as e:
+            print(f"Неизвестная ошибка: {e}")
+            html = self.render_template('500.html')
+            self.send_response(500)
             self.send_header('Content-type', 'text/html; charset=utf-8')
             self.end_headers()
             self.wfile.write(html.encode('utf-8'))

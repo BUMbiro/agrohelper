@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}База знаний{% endblock %}
+
+{% block content %}
+<h2 class="section-title">База знаний</h2>
+<p>Здесь будут справочные материалы по ОКПД2, ТН ВЭД, регламентам, инструкции по работе с ФГИС Росаккредитации и ЕФГИС ЗСН.</p>
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h5>ОКПД2 / ТН ВЭД</h5>
+            <p>Справочник кодов для продукции.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h5>Инструкции по ФГИС</h5>
+            <p>Как работать в системе «иному заявителю».</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3">
+            <h5>СанПиН и регламенты</h5>
+            <p>Актуальные требования законодательства.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

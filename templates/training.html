@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Обучение по пестицидам{% endblock %}
+
+{% block content %}
+<h2 class="section-title">Обучение безопасному обращению с пестицидами</h2>
+
+<div class="row g-4">
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h5>Программы обучения:</h5>
+            <ul>
+                <li><strong>Базовый курс (16 часов)</strong> – основы безопасного обращения, СанПиН 1.2.3685-21.</li>
+                <li><strong>Углубленный курс (72 часа)</strong> – полный спектр требований, ФЗ-109, СанПиН 2.1.3684-21.</li>
+            </ul>
+            <p>По окончании выдаётся <strong>удостоверение установленного образца</strong> (официальный документ).</p>
+            <p>Обучение проводится <strong>ежегодно</strong> – обязательно для работающих с пестицидами 1 и 2 класса опасности.</p>
+            <p><strong>Стоимость:</strong> 8 000 ₽ (базовый) / 15 000 ₽ (углубленный).</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4">
+            <h5>Записаться на обучение</h5>
+            <form method="POST" action="/training">
+                <div class="mb-2">
+                    <label for="name" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-2">
+                    <label for="phone" class="form-label">Телефон</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="mb-2">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-2">
+                    <label for="program" class="form-label">Программа</label>
+                    <select class="form-control" id="program" name="program">
+                        <option value="16">Базовый (16 ч.)</option>
+                        <option value="72">Углубленный (72 ч.)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Записаться</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
