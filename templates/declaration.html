@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Декларирование продукции{% endblock %}
+
+{% block content %}
+<h2 class="section-title">Оформление декларации о соответствии</h2>
+
+<div class="row g-4">
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h5>Что входит в услугу:</h5>
+            <ul>
+                <li>Консультация по выбору схемы (1Д/2Д) и типа объекта (серийный/партия).</li>
+                <li>Подготовка готового наименования продукции для черновика.</li>
+                <li>Подбор ОКПД2, ТН ВЭД, группы ЕАЭС, регламентов.</li>
+                <li>Проверка протоколов (наличие ГМО-фразы, акта отбора для 2Д).</li>
+                <li>Создание черновика в системе от имени «иного заявителя».</li>
+                <li>Отправка черновика фермеру на подпись (через МЧД).</li>
+            </ul>
+            <p><strong>Стоимость:</strong> 5 000 ₽ (без учёта госпошлины 1 500 ₽).</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4">
+            <h5>Заказать декларацию</h5>
+            <form method="POST" action="/declaration">
+                <div class="mb-2">
+                    <label for="product" class="form-label">Продукт</label>
+                    <input type="text" class="form-control" id="product" name="product" required>
+                </div>
+                <div class="mb-2">
+                    <label for="variety" class="form-label">Сорт</label>
+                    <input type="text" class="form-control" id="variety" name="variety">
+                </div>
+                <div class="mb-2">
+                    <label for="year" class="form-label">Год урожая</label>
+                    <input type="number" class="form-control" id="year" name="year" required>
+                </div>
+                <div class="mb-2">
+                    <label for="scheme" class="form-label">Схема</label>
+                    <select class="form-control" id="scheme" name="scheme">
+                        <option value="1Д">1Д</option>
+                        <option value="2Д">2Д</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label for="object_type" class="form-label">Тип объекта</label>
+                    <select class="form-control" id="object_type" name="object_type">
+                        <option value="серийный">Серийный</option>
+                        <option value="партия">Партия</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
